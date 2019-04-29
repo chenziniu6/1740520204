@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="index" content="HanRui">
+<meta name="ATT" content="javascript">
+<title>卡牌界面</title>
+<style>
+    h1 {
+        text-shadow: 2px 5px 2px rgb(15, 255, 255);
+        text-align: center;
+        font-size: 40px;
+        
+    }
+    .button
+            {   margin:0 
+                auto;
+            }
+            div{
+                margin: 0,0,0,0;
+                padding:0,0,0,0;
+            }
+            td{
+                width: 50%;
+            }
+            body{
+                background: url("img/2.jpg");
+                /*是否随着屏幕一起移动*/
+                background-attachment: fixed;
+                /*不允许重复*/
+                background-repeat: no-repeat;
+            }
+</style>
+
+</head>
+<body>
+    <!--border虚线-->
+    <h1 >let's go</h1>
+
+    <div style="width:100% ;height:400px ;background-color:rgb(203, 90, 255); ">
+        <div style="width:50%; height:400px ;background-color:rgb(255, 253, 140); float:left;">
+                <table style="text-align:center; width:100%; height:70%;" border="1">
+                        <tr>
+                            <td colspan="2" style="text-align:center">奖金池</td>
+                        </tr>
+                        <tr>
+                            <td>五条</td>
+                            <td id="bonus_0">750</td>
+                        </tr>
+                        <tr>
+                            <td>皇家大顺</td>
+                            <td id="bonus_1">600</td>
+                        </tr>
+                        <tr>
+                            <td>同花顺</td>
+                            <td id="bonus_2">550</td>
+                        </tr>
+                        <tr>
+                            <td>四条</td>
+                            <td id="bonus_3">500</td>
+                        </tr>
+                    </table>
+                    <table style="text-align:center; width:100%; height:30%;" border="1">
+                        <tr>
+                            <td>总分</td>
+                            <td id="toral_points">100000</td>
+                        </tr>
+                        <tr>
+                            <td>下注</td>
+                            <td id="bottom_pour">100</td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="width:50%; height:400px ; float:right;">
+                    <table style="text-align:center; width:100%; height:100%;" border="1">
+                        <tr>
+                            <td style="text-align:center" colspan="2" >
+                                <div>
+                                   <p style="text-align:center">奖项：<p id="right_result"></p></p> 
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>五同</td>
+                            <td id="poker_0">750</td>
+                        </tr>
+                        <tr>
+                            <td>皇家大顺</td>
+                            <td id="poker_1">250</td>
+                        </tr>
+                        <tr>
+                            <td>同花顺</td>
+                            <td id="poker_2">150</td>
+                        </tr>
+                        <tr>
+                            <td>4同</td>
+                            <td id="poker_3">60</td>
+                        </tr>
+                        <tr>
+                            <td>三带对</td>
+                            <td id="poker_4">10</td>
+                        </tr>
+                        <tr>
+                            <td>同花</td>
+                            <td id="poker_5">7</td>
+                        </tr>
+                        <tr>
+                            <td>顺子</td>
+                            <td id="poker_6">5</td>
+                        </tr>
+                        <tr>
+                            <td>3同</td>
+                            <td id="poker_7">3</td>
+                        </tr>
+                        <tr>
+                            <td>2对</td>
+                            <td id="poker_8">2</td>
+                        </tr>
+                        <tr>   
+                            <td>1对</td>
+                            <td id="poker_9">1</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        
+        <div style="width:100%; height:550px" align="center">
+                <div style="width: 20% ; text-align: center;  float:left ;height:470px ">
+                        <img id='card_0' width="100%" src="./img/0/0.png" >
+                        <label id="card_lable_0">HOLD</label>
+                    </div>
+                    <div style="width: 20% ; text-align: center; float:left ;height:470px">
+                        <img id='card_1' width="100%" src="./img/1/2.png" >
+                        <label id="card_lable_1">HOLD</label>
+                    </div>
+                    <div style="width: 20% ; text-align: center; float:left ;height:470px">
+                        <img id='card_2' width="100%" src="./img/2/2.png" >
+                        <label id="card_lable_2">HOLD</label>
+                    </div>
+                    <div style="width: 20% ; text-align: center; float:left ;height:470px">
+                        <img id='card_3' width="100%" src="./img/3/3.png" >
+                        <label id="card_lable_3">HOLD</label>
+                    </div>
+                    <div style="width: 20% ; text-align: center; float:left ;height:470px">
+                        <img id='card_4' width="100%" src="./img/4/4.png" >
+                        <label id="card_lable_4">HOLD</label>
+                    </div>    
+                </div>
+            
+                <div class="button" style="width: 100% ;height:200px; " align="center">
+                    <div style="width:25%;height:10%;" align="center">
+                        <form action="#" style="float:left;">
+                            
+                            <input id="pour_input" type="text" name="num" style="display:block;text-align:center;"/>
+                        </form>
+                        <!-- 这边名字id什么的都可以修改 -->
+                        <button id="plus" style="float:left; margin:0px 0px 0px 10px;">+</button>
+                        <button id="minus"  style="float:left; margin:0px 0px 0px 10px;">-</button>
+                        <button id="start" onclick="onclickrandom1()" style="float:left; margin:0px 0px 0px 10px;">开始</button>
+                        <button id="" onclick="onclickreset1()" style="float:left;margin:0px 0px 0px 10px;">重置</button>
+                    </div>
+                </div>
+            
+                <!--引入jq-->
+                <script src="./1.js"></script>
+                <script>
+                    let gameStart = false;//游戏是否开始
+                   const bonusText=[];//奖金池分数
+                   for(let i=0;i<4;i++){
+                       bonusText.push($('#bonus_'+i));
+                   }
+                    const pokerText=[];
+                    for(let i=0;i<10;i++){//牌型记分牌
+                       pokerText.push($('#poker_'+i));
+                   }
+            
+                   //对应的倍率5k：750
+                   const pokerRate=[
+                       750,250,150,60,10,7,5,3,2,1
+                    ]
+            
+                    const cardImages=[];
+                    const cardLabels= [];//保留卡牌标签
+                    let keep=new Array(5).fill(null);
+                    for(let i=0;i<5;i++){
+                        const card=$(`#card_${i}`);
+                        cardImages.push(card);
+                        const text = $(`#card_lable_${i}`)
+                        cardLabels.push(text);
+                        text.isShown = false
+                        text.hide()
+                        card.on('click',()=>{
+                            if(!gameStart){
+                                alert("游戏未开始!");
+                            }else{
+                                text.isShown = !text.isShown
+                                text.isShown?text.show():text.hide()
+                                if(text.isShown){
+                                    keep.push(i)
+                                }else{
+                                    delete keep[keep.indexOf(i)]
+                                }
+                                const temp = []
+                                keep.forEach(e=>{
+                                    if(e||e===0){
+                                        temp.push(e)
+                                    }
+                                })
+                                keep = temp.sort()//排序后的数据
+                            }
+                        })
+                    }
+                // 按钮的id类型
+                const pourText=$('#toral_points');//获取显示总分
+                const total=$('#bottom_pour');//获取押分格子的id
+                const pourInput=$('#pour_input');//获取显示下注分数
+            
+                const plusBth=$('#plus');//获取增加下注格子的id
+                const minusBth=$('#minus');//获取减少下注的格子id
+                const startBth=$('#start');//获取开始游戏按钮的id
+                const pournum = 10000;
+                let pourScore=0;
+
+                plusBth.on('click',()=>{
+                    if(!gameStart){
+                        pourScore+=100;
+                        pourText.text(pournum);
+                        total.text(pourScore);
+                        pourInput.val(pourScore);
+                        updateDisplay();
+                    }else{
+                        alert("已经开始不能下注");
+                    }
+                })
+                minusBth.on('click',()=>{
+                    if(!gameStart){
+                        if(pourScore<=0){
+                            pourScore=0;
+                        }
+                        else
+                        {
+                            pourScore-=100;
+                            pourText.text(pournum);
+                            total.text(pourScore);
+                            pourInput.val(pourScore);
+                        }
+                        updateDisplay();
+                    }else{
+                        alert("已经开始不能下注");
+                    }
+                })
+                let updateDisplay=score =>{
+                    for(let i=0;i<pokerRate.length;i++){
+                        const td=pokerText[i];
+                        const rate=pokerRate[i];
+                        if(pourScore===0){
+                            td.text(1*rate);
+                        }else{
+                            td.text(pourScore*rate);
+                        }
+                    }
+                }
+            
+                  //  console.log(randomcards());
+                  function onclickrandom1(){
+                    let cards;
+                    if(!gameStart){
+                        $.post('/pour',{
+                            coin:pourScore,
+                            start:gameStart
+                        },function (res){
+                            let gamest=res.gameStart;
+                            console.log('----res2:',res);
+                            if(res.code===0){
+                                gameStart=gamest;
+                                $(`#toral_points`).text(res.currCoin)
+                                $.get('./random',function (res){
+                                    cards=res.cards;
+                                    console.log('----res:',res);
+                                    for(let i =0;i<cards.length;i++){
+                                        const card=cards[i];
+                                        const url=`./img/${card._type}/${card._value}.png`;
+                                        $(`#card_${i}`).attr('src',url);
+                                    }
+                                    $(`#right_result`).text(res.result);
+                                });
+                                $(`#start`).text('换牌');
+                            }else{
+                                alert(res.desc)
+                            }
+                        });
+                    }else{
+                        $.post('./switch',{
+                            keepcard:keep,
+                            pourCoin:pourScore,
+                            length:keep.length,
+                        },function(res){
+                            const cards=res.cards;
+                            for(let i =0;i<cards.length;i++){
+                                    const card=cards[i];
+                                    const url=`./img/${card._type}/${card._value}.png`;
+                                    $(`#card_${i}`).attr('src',url);
+                                }
+                            $(`#right_result`).text(res.result); 
+                            $(`#toral_points`).text(res.gameCoin);     
+                        });
+                        $(`#start`).text('开始');
+                        gameStart=false;
+                        for(let i=0;i<5;i++){
+                            cardLabels[i].isShown = false;
+                            cardLabels[i].hide();
+                        }
+                        keep=new Array(5).fill(null);
+                        onclickreset1();
+                    }
+                  }
+                  function onclickreset1(){
+                      for(let i=0;i<5;i++){
+                          $(`#card_${i}`).attr('src',`./img/1.jpg`);
+                      }
+                  }
+                </script>
+            
+            </body>
+            </html>
